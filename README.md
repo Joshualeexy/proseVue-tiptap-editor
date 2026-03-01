@@ -29,10 +29,20 @@
 
 ---
 
-## 🚀 Quick Installation
+## ⚡ Zero-Config Standalone Integration
+This editor is designed to be **100% standalone**. You don't need to install a heavy library or deal with complex build steps. 
 
-### 1. Install Dependencies
-Copy `TipTapEditor.vue` to your components folder, then run:
+1. **Copy** `TipTapEditor.vue` into your project.
+2. **Install** the dependencies.
+3. **Register** your icons.
+4. **Done.** It's that simple.
+
+---
+
+## 🚀 Installation & Setup
+
+### 1. Install Tiptap & FontAwesome
+Run this command in your project root to get all the power of Tiptap v2:
 
 ```bash
 npm install @tiptap/vue-3 @tiptap/starter-kit @tiptap/extension-underline @tiptap/extension-bubble-menu @tiptap/extension-floating-menu @tiptap/extension-task-list @tiptap/extension-task-item @tiptap/extension-table @tiptap/extension-table-row @tiptap/extension-table-cell @tiptap/extension-table-header @tiptap/extension-youtube @tiptap/extension-subscript @tiptap/extension-superscript @tiptap/extension-typography @tiptap/extension-highlight @tiptap/extension-text-align @tiptap/extension-color @tiptap/extension-text-style @tiptap/extension-link @tiptap/extension-image @tiptap/extension-placeholder @tiptap/extension-character-count @tiptap/extension-horizontal-rule @tiptap/pm @fortawesome/vue-fontawesome @fortawesome/free-solid-svg-icons @fortawesome/fontawesome-svg-core @fortawesome/free-brands-svg-icons
