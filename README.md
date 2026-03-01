@@ -31,6 +31,7 @@
 - **Typography Engine**: Auto-smart characters (e.g., `(tm)` to ™, `->` to →, `1/2` to ½).
 - **Task Lists**: Interactive checkboxes for project management.
 - **Alignment & Formatting**: Full text alignment (Left, Center, Right, Justify) and a "Clear Styles" tool.
+- **Dual-Format Output**: Native support for both **HTML** and **JSON** (ProseMirror) structured data.
 
 ---
 
@@ -82,13 +83,15 @@ npm install -D @tailwindcss/typography
 import { ref } from 'vue';
 import TipTapEditor from './components/TipTapEditor.vue';
 
-const content = ref('<h1>Hello Masterpiece!</h1>');
+const htmlContent = ref('<h1>Hello Masterpiece!</h1>');
+const jsonContent = ref(null); // Will automatically sync with structured data
 </script>
 
 <template>
   <div class="p-8 dark:bg-slate-900 min-h-screen transition-colors">
     <TipTapEditor 
-      v-model="content" 
+      v-model="htmlContent" 
+      v-model:json="jsonContent"
       accent-color="#3b82f6" 
       :limit="5000"
       placeholder="Type / for commands..."
@@ -103,8 +106,8 @@ const content = ref('<h1>Hello Masterpiece!</h1>');
 
 | Prop | Type | Default | Description |
 | :--- | :--- | :--- | :--- |
-| `modelValue` | `String` | `''` | The editor content (HTML string). |
-| `json` | `Object` | `null` | Structured JSON content (ProseMirror format). |
+| `modelValue` | `String` | `''` | **v-model** for HTML string output. |
+| `json` | `Object` | `null` | **v-model:json** for structured ProseMirror JSON. |
 | `accentColor` | `String` | `#3b82f6` | Primary color for UI accents and indicators. |
 | `limit` | `Number` | `0` | Character limit (0 disables the progress bar). |
 | `placeholder` | `String` | `Write something ...` | Hint text for empty editor. |
