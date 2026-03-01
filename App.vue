@@ -3,6 +3,7 @@ import { ref } from 'vue';
 import TipTapEditor from './TipTapEditor.vue';
 
 const content = ref('<h1>Welcome to Tiptap!</h1><p>Start typing here...</p>');
+const jsonContent = ref(null);
 const accentColor = ref('#0e2daa');
 </script>
 
@@ -17,11 +18,14 @@ const accentColor = ref('#0e2daa');
         <span class="text-sm font-mono text-gray-400">{{ accentColor }}</span>
       </div>
 
-      <TipTapEditor v-model="content" :accent-color="accentColor" placeholder="Type something amazing here..." />
+      <TipTapEditor v-model="content" v-model:json="jsonContent" :accent-color="accentColor" placeholder="Type something amazing here..." />
       
       <div class="mt-8">
         <h2 class="text-xl font-semibold mb-4 text-gray-700">HTML Output:</h2>
         <pre class="bg-gray-100 p-4 rounded-lg overflow-x-auto text-xs text-gray-600 border border-gray-200">{{ content }}</pre>
+      </div> <div class="mt-8">
+        <h2 class="text-xl font-semibold mb-4 text-gray-700">JSON Output:</h2>
+        <pre class="bg-gray-100 p-4 rounded-lg overflow-x-auto text-xs text-gray-600 border border-gray-200">{{ jsonContent }}</pre>
       </div>
     </div>
   </div>

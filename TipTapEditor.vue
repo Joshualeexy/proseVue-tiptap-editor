@@ -52,13 +52,14 @@ const FontSize = Extension.create({
 });
 
 const props = defineProps({
-    modelValue: String,
+    modelValue: { type: String, default: '' },
+    json: { type: Object, default: null },
     placeholder: { type: String, default: "Write something amazing..." },
     accentColor: { type: String, default: "#3b82f6" },
     limit: { type: Number, default: 0 }
 });
 
-const emit = defineEmits(["update:modelValue"]);
+const emit = defineEmits(["update:modelValue", "update:json"]);
 
 const activePopover = ref(null); // 'link', 'youtube', 'image'
 const popoverInput = ref('');
@@ -70,8 +71,11 @@ const editor = useEditor({
             class: "prose prose-slate dark:prose-invert max-w-none min-h-[450px] w-full outline-none bg-transparent p-8 md:p-12 transition-all selection:bg-blue-100 dark:selection:bg-blue-900",
         },
     },
-    content: props.modelValue,
-    onUpdate: ({ editor }) => emit("update:modelValue", editor.getHTML()),
+    content: props.json || props.modelValue,
+    onUpdate: ({ editor }) => {
+        emit("update:modelValue", editor.getHTML());
+        emit("update:json", editor.getJSON());
+    },
     extensions: [
         StarterKit.configure({
             codeBlock: { HTMLAttributes: { class: 'rounded-lg bg-slate-900 text-slate-100 p-4 font-mono text-sm' } },
@@ -108,6 +112,12 @@ watch(() => props.modelValue, (value) => {
         editor.value.commands.setContent(value, false);
     }
 });
+
+watch(() => props.json, (value) => {
+    if (editor.value && JSON.stringify(editor.value.getJSON()) !== JSON.stringify(value)) {
+        editor.value.commands.setContent(value, false);
+    }
+}, { deep: true });
 
 onBeforeUnmount(() => editor.value?.destroy());
 

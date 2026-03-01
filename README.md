@@ -104,7 +104,8 @@ const content = ref('<h1>Hello Masterpiece!</h1>');
 
 | Prop | Type | Default | Description |
 | :--- | :--- | :--- | :--- |
-| `modelValue` | `String` | `''` | The editor content (v-model). |
+| `modelValue` | `String` | `''` | The editor content (HTML string). |
+| `json` | `Object` | `null` | Structured JSON content (ProseMirror format). |
 | `accentColor` | `String` | `#3b82f6` | Primary color for UI accents and indicators. |
 | `limit` | `Number` | `0` | Character limit (0 disables the progress bar). |
 | `placeholder` | `String` | `Write something ...` | Hint text for empty editor. |
@@ -112,4 +113,4 @@ const content = ref('<h1>Hello Masterpiece!</h1>');
 ---
 
 ## 📜 License
-ISC - Free to use for personal and commercial projects. Build something beautiful!
+MIT - Free to use for personal and commercial projects. Build something beautiful!
