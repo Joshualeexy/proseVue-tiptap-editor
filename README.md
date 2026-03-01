@@ -7,6 +7,8 @@
 ![Tiptap](https://img.shields.io/badge/Tiptap-2.x-000000?style=for-the-badge)
 ![Tailwind](https://img.shields.io/badge/Tailwind-4.x-38bdf8?style=for-the-badge&logo=tailwind-css)
 
+[**Live Demo ⚡**](https://prose-vue-tiptap-editor.vercel.app/)
+
 ---
 
 ### 📸 Editor Preview
