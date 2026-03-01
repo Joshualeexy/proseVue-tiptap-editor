@@ -11,7 +11,6 @@
 
 ### 📸 Editor Preview
 ![Vue3 Tailwind Tiptap 2 Editor Screenshot Placeholder](./screenshot.png)
-*Replace the image above with a real screenshot of the editor!*
 
 ---
 
